@@ -43,7 +43,7 @@ namespace Time_Based_Key_Value_Store
       if (hash.ContainsKey(key))
       {
         var existing = hash[key];
-
+        if (existing.ContainsKey(timestamp)) return existing[timestamp];
         // right now below line returning TLE exception, we can do better by performing binary search on the dictioanry which holds the timestamp and respected values.
         var existingValue = existing.Where(item => item.Key <= timestamp).OrderByDescending(item => item.Key).FirstOrDefault();
         if (existingValue.Equals(default(KeyValuePair<int, string>))) return value;
