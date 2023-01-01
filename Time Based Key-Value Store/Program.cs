@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class TimeMap
     {
         private readonly IDictionary<string, IList<(int timestamp, string value)>> _data;
